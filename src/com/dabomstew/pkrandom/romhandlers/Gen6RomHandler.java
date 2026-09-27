@@ -1485,7 +1485,9 @@ public class Gen6RomHandler extends Abstract3DSRomHandler {
                     int speciesWithForme = absolutePokeNumByBaseForme
                             .getOrDefault(species, dummyAbsolutePokeNums)
                             .getOrDefault(forme, 0);
-                    e.pokemon = pokes[speciesWithForme];
+
+                    Pokemon pokemonWithForme = pokes[speciesWithForme];
+                    e.pokemon = pokemonWithForme != null ? pokemonWithForme : baseForme;
                 }
                 e.formeNumber = forme;
                 e.level = data[offset + 2 + i * 4];
